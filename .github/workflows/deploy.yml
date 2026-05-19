@@ -1,0 +1,14 @@
+name: Deploy
+on: push
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - run: echo "Deploying to staging"
+  production:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: staging
+    steps:
+      - run: echo "Deploying to production"
